@@ -1,0 +1,26 @@
+{
+  "name": "laneanalyst",
+  "version": "1.0.0",
+  "description": "Tool for statistically comparing league of legends champions.",
+  "main": "main.js",
+  "dependencies": {
+    "express": "4.16.2"
+  },
+  "engines": {
+  "node": "6.11.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sokojoe/laneanalyst.git"
+  },
+  "author": "Joey Sokolon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sokojoe/laneanalyst/issues"
+  },
+  "homepage": "https://github.com/Sokojoe/laneanalyst#readme"
+}
