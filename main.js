@@ -8,6 +8,4 @@ app.get('/', function(request, response) {
   response.sendFile(path.join(__dirname + '/view/main.html'));
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(process.env.PORT || 5000)
