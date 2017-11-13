@@ -19,9 +19,20 @@ var MongoClient = require('mongodb').MongoClient,
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
       console.log("Connected successfully to server");
-        db.close();
-	});
+      db.close();
+      });
 }
 
-updatedb()
-app.listen(process.env.PORT || 5000)
+function getChampData() {
+    var request = require("request");
+    var api_url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&tags=stats&dataById=false&api_key=" + process.env.RIOT_API;
+        console.log(api_url);
+        var data = request({url: api_url, json: true}, function(err, res, json){
+        console.log(json);   
+        });
+    
+}
+
+updatedb();
+getChampData();
+app.listen(process.env.PORT || 5000);
