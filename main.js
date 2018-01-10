@@ -4,17 +4,22 @@ const path = require('path');
 
 app.use(express.static(__dirname + '/view'));
 
-app.get('/', function(request, response) {
+app.get('/', function(req, response) {
+  if (req.query.c1 != undefined && req.query.c2 != undefined){
+    console.log(req.query.c1, req.query.c2)
+  }
   response.sendFile(path.join(__dirname + '/view/main.html'));
+  
 });
 
-function updatedb () {
+function connectToDB () {
 var MongoClient = require('mongodb').MongoClient, 
 	 assert = require('assert');
 
   // Connection URL
   var url = process.env.MONGODB_URI;
-
+  
+  console.log(url)
   // Use connect method to connect to the server
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
@@ -23,16 +28,4 @@ var MongoClient = require('mongodb').MongoClient,
       });
 }
 
-function getChampData() {
-    var request = require("request");
-    var api_url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&tags=stats&dataById=false&api_key=" + process.env.RIOT_API;
-        console.log(api_url);
-        var data = request({url: api_url, json: true}, function(err, res, json){
-        console.log(json);   
-        });
-    
-}
-
-updatedb();
-getChampData();
 app.listen(process.env.PORT || 5000);
