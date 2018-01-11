@@ -6,15 +6,11 @@ function getChamps(){
   xhttp.send()
 }
 
-function setdata(){
-
-} 
-
-
 var xhttp = new XMLHttpRequest();
 
 xhttp.onreadystatechange = function (){
   if (xhttp.readyState == 4){ 
-  console.log(xhttp.responseText)
+  var result = JSON.parse(xhttp.responseText)
+  console.log(result)
   }
 }
