@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Champion Compare</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="js/main.js"></script>
+</head
+
+<body>
+  <div class="container text-center">
+    <h1>Lane Analyst</h1>
+    <div class="row">
+      <div class="col-5">
+        <div class="input-group">
+          <input type="text" class="form-control" id="champ1" placeholder="{{c1.name}}">
+          </span>
+        </div>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-secondary" type="button" onclick="getChamps()">Search Again</button>
+      </div>
+      <div class="col-5">
+        <div class="input-group">
+          <input type="text" class="form-control" id="champ2" placeholder="{{c2.name}}">
+          <span class="input-group-btn">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1>{{c1.name}}</h1>
+      </div>
+      <div class="col">
+        <h1>{{c2.name}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><h4>Offense</h4></div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Attack Damage: {{c1.stats.attackdamage}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Attack Damage: {{c2.stats.attackdamage}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Attack Range: {{c1.stats.attackrange}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Attack Range: {{c2.stats.attackrange}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Critical Strike Chance: {{c1.stats.crit}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Critical Strike Chance: {{c2.stats.crit}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Attack Speed:
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Attack Speed:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><h4>Defense</h4></div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Health: {{c1.stats.hp}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Health: {{c2.stats.hp}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Health Regen: {{c1.stats.hpregen}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Health Regen: {{c2.stats.hpregen}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Armor: {{c1.stats.armor}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Armor: {{c2.stats.armor}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Magic Resist: {{c1.stats.spellblock}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Magic Resist: {{c2.stats.spellblock}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Movespeed: {{c1.stats.movespeed}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Movespeed: {{c2.stats.movespeed}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><h4>Magic</h4></div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Ability Power: 0
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Ability Power: 0
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Magic Penetration: 0
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Magic Penetration: 0
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Mana: {{c1.stats.mp}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Mana: {{c2.stats.mp}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col lol">
+        Mana regen: {{c1.stats.mpperlevel}}
+      </div>
+      <div class="col-xs mid">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </div>
+      <div class="col lol">
+        Mana regen: {{c2.stats.mpperlevel}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+<footer class="footer">
+  <div class="container text-center">
+    <div class="col text-muted">Lane Analyst isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
+      League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
+    </div>
+  </div>
+</footer>
+</html>

@@ -9,202 +9,29 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <link rel="stylesheet" type="text/css" href="css/mystyle.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="main.js"></script>
+  <script src="js/main.js"></script>
 </head
 
 <body>
   <div class="container text-center">
     <h1>Lane Analyst</h1>
     <div class="row">
-      <div class="col">
-        <div class="input-group">
+      <div class="col-5">
           <input type="text" class="form-control" id="champ1" placeholder="Ashe">
-          <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">
-            <span class="fa fa-search"></span>
-          </button>
-          </span>
-        </div>
       </div>
-      <div class="col">
-        <div class="input-group">
-          <input type="text" class="form-control" id="champ2" placeholder="Bard">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" onclick="getChamps()">
-              <span class="fa fa-search"></span>
-          </button>
-          </span>
-        </div>
+      <div class="col-2">
+        <button class="btn btn-secondary" type="button" onclick="getChamps()">Compare</button>
       </div>
-    </div>
-    <div class="row">
-      <div class="col text-center">
-        <img class="champicon" src="/Ashe.png" width="240" height="240">
-      </div>
-      <div class="col text-center champicon">
-        <img class="champicon" src="/Bard.jpg" width="240" height="240">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col"><h4>Offense</h4></div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Attack Damage:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Attack Damage:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Attack Range:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Attack Range:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Critical Strike Chance:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Critical Strike Chance:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Attack Speed:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Attack Speed:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col"><h4>Defense</h4></div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Health:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Health:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Health Regen:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Health Regen:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Armor:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Armor:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Magic Resist:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Magic Resist:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Movespeed:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Movespeed:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col"><h4>Magic</h4></div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Ability Power:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Ability Power:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Magic Penetration:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Magic Penetration:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Mana:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Mana:
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Mana regen:
-      </div>
-      <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      </div>
-      <div class="col lol">
-        Mana regen:
+      <div class="col-5">
+        <input type="text" class="form-control" id="champ2" placeholder="Bard">
       </div>
     </div>
   </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 <footer class="footer">
