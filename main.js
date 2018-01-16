@@ -7,15 +7,7 @@ const handlebars = require('handlebars')
 app.use(express.static(__dirname + '/static'))
 
 app.get('/', function(req, response) {
-  if (req.query.c1 != undefined && req.query.c2 != undefined){
-    var c1 = req.query.c1
-    var c2 = req.query.c2
-    console.log("Received request for:", c1, c2)
-    //response.send("Recieved request for champions: " + c1 + ", " + c2)
-    connectToDB(c1,c2, response)
-  } else {
   response.sendFile(path.join(__dirname + '/view/index.html'));
-  }
 })
 
 app.get('/compare', function (req, res) {
@@ -43,10 +35,6 @@ function connectToDB (c1, c2, res, src) {
     })
     client.close()
   })
-}
-
-function champData(err, doc){
- console.log(doc["data"]["Jax"])
 }
 
 app.listen(process.env.PORT || 5000)
