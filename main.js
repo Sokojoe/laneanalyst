@@ -6,7 +6,28 @@ const exphbs = require('express-handlebars')
 
 app.use(express.static(path.join(__dirname, '/static')))
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}))
+var hbs = exphbs.create({
+  defaultLayout: 'main',
+  helpers: {
+    calcAttackSpeed: function(attackdelay) {
+      var attackspeed = (0.625 / (1 + attackdelay))
+      return attackspeed.toFixed(3)
+    },
+    determineSymbol: function(value1, value2) {
+      if (value1 > value2){
+        return "<i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>"
+      }
+      else if (value1 < value2){
+        return "<i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>"
+      }
+      else {
+        return "<i class=\"fa fa-bars\" aria-hidden=\"true\"></i>"
+      }
+    }
+  }
+})
+
+app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
 app.get('/', function(req, res) {

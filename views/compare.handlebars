@@ -35,7 +35,7 @@
         Attack Damage: {{c1.stats.attackdamage}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.attackdamage c2.stats.attackdamage}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Attack Damage: {{c2.stats.attackdamage}}
@@ -46,7 +46,7 @@
         Attack Range: {{c1.stats.attackrange}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.attackrange c2.stats.attackrange}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Attack Range: {{c2.stats.attackrange}}
@@ -57,7 +57,7 @@
         Critical Strike Chance: {{c1.stats.crit}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.crit c2.stats.crit}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Critical Strike Chance: {{c2.stats.crit}}
@@ -65,13 +65,13 @@
     </div>
     <div class="row">
       <div class="col lol">
-        Attack Speed:
+        Attack Speed: {{#calcAttackSpeed c1.stats.attackspeedoffset}}{{/calcAttackSpeed}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c2.stats.attackspeedoffset c1.stats.attackspeedoffset}}{{/determineSymbol}}
       </div>
       <div class="col lol">
-        Attack Speed:
+        Attack Speed: {{#calcAttackSpeed c2.stats.attackspeedoffset}}{{/calcAttackSpeed}}
       </div>
     </div>
     <div class="row">
@@ -82,7 +82,7 @@
         Health: {{c1.stats.hp}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.hp c2.stats.hp}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Health: {{c2.stats.hp}}
@@ -93,7 +93,7 @@
         Health Regen: {{c1.stats.hpregen}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.hpregen c2.stats.hpregen}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Health Regen: {{c2.stats.hpregen}}
@@ -104,7 +104,7 @@
         Armor: {{c1.stats.armor}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.armor c2.stats.armor}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Armor: {{c2.stats.armor}}
@@ -115,7 +115,7 @@
         Magic Resist: {{c1.stats.spellblock}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.spellblock c2.stats.spellblock}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Magic Resist: {{c2.stats.spellblock}}
@@ -126,7 +126,7 @@
         Movespeed: {{c1.stats.movespeed}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.movespeed c2.stats.movespeed}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Movespeed: {{c2.stats.movespeed}}
@@ -140,7 +140,7 @@
         Ability Power: 0
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol 0 0}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Ability Power: 0
@@ -151,7 +151,7 @@
         Magic Penetration: 0
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol 0 0}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Magic Penetration: 0
@@ -162,7 +162,7 @@
         Mana: {{c1.stats.mp}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.mp c2.stats.mp}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Mana: {{c2.stats.mp}}
@@ -173,7 +173,7 @@
         Mana regen: {{c1.stats.mpperlevel}}
       </div>
       <div class="col-xs mid">
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{#determineSymbol c1.stats.mpperlevel c2.stats.mpperlevel}}{{/determineSymbol}}
       </div>
       <div class="col lol">
         Mana regen: {{c2.stats.mpperlevel}}
