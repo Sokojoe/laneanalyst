@@ -49,7 +49,8 @@ function connectToDB (c1, c2, res) {
     client.collection('champions').findOne(function getData(err, doc){
       var data = {
         c1: doc["data"][c1],
-        c2: doc["data"][c2]
+        c2: doc["data"][c2],
+        version: doc["version"]
       }
       res.render('compare', data)
     })
