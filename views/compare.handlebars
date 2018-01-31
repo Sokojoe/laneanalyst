@@ -1,185 +1,189 @@
-<body>
-  <div class="container text-center">
-    <h1>Lane Analyst</h1>
-    <div class="row">
-      <div class="col-5">
-        <div class="input-group">
-          <input type="text" class="form-control" id="champ1" placeholder="{{c1.name}}">
+<div class="container text-center">
+  <div class="row">
+    <div class="col-5">
+      <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{c1.name}}.png" align="left">
+      <h2>{{c1.name}}</h2>
+      <h3>{{c1.title}}</h3>
+    </div>
+    <div class="col-2">
+      <h4>VS</h4></div>
+    <div class="col-5">
+      <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{c2.name}}.png" align="right">
+      <h2>{{c2.name}}</h2>
+      <h3>{{c2.title}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <div class="input-group">
+        <input type="text" class="form-control" id="champ1" placeholder="{{c1.name}}">
+        </span>
+      </div>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-primary" type="button" onclick="getChamps()">Search Again</button>
+    </div>
+    <div class="col-5">
+      <div class="input-group">
+        <input type="text" class="form-control" id="champ2" placeholder="{{c2.name}}">
+        <span class="input-group-btn">
           </span>
-        </div>
-      </div>
-      <div class="col-2">
-        <button class="btn btn-secondary" type="button" onclick="getChamps()">Search Again</button>
-      </div>
-      <div class="col-5">
-        <div class="input-group">
-          <input type="text" class="form-control" id="champ2" placeholder="{{c2.name}}">
-          <span class="input-group-btn">
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <h1>{{c1.name}}</h1>
-        <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{c1.name}}.png">
-      </div>
-      <div class="col">
-        <h1>{{c2.name}}</h1>
-        <img src="http://ddragon.leagueoflegends.com/cdn/{{version}}/img/champion/{{c2.name}}.png">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col"><h4>Offense</h4></div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Attack Damage: {{c1.stats.attackdamage}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.attackdamage c2.stats.attackdamage}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Attack Damage: {{c2.stats.attackdamage}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Attack Range: {{c1.stats.attackrange}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.attackrange c2.stats.attackrange}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Attack Range: {{c2.stats.attackrange}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Critical Strike Chance: {{c1.stats.crit}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.crit c2.stats.crit}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Critical Strike Chance: {{c2.stats.crit}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Attack Speed: {{#calcAttackSpeed c1.stats.attackspeedoffset}}{{/calcAttackSpeed}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c2.stats.attackspeedoffset c1.stats.attackspeedoffset}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Attack Speed: {{#calcAttackSpeed c2.stats.attackspeedoffset}}{{/calcAttackSpeed}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col"><h4>Defense</h4></div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Health: {{c1.stats.hp}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.hp c2.stats.hp}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Health: {{c2.stats.hp}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Health Regen: {{c1.stats.hpregen}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.hpregen c2.stats.hpregen}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Health Regen: {{c2.stats.hpregen}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Armor: {{c1.stats.armor}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.armor c2.stats.armor}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Armor: {{c2.stats.armor}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Magic Resist: {{c1.stats.spellblock}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.spellblock c2.stats.spellblock}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Magic Resist: {{c2.stats.spellblock}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Movespeed: {{c1.stats.movespeed}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.movespeed c2.stats.movespeed}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Movespeed: {{c2.stats.movespeed}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col"><h4>Magic</h4></div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Ability Power: 0
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol 0 0}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Ability Power: 0
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Magic Penetration: 0
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol 0 0}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Magic Penetration: 0
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Mana: {{c1.stats.mp}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.mp c2.stats.mp}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Mana: {{c2.stats.mp}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col lol">
-        Mana regen: {{c1.stats.mpperlevel}}
-      </div>
-      <div class="col-xs mid">
-        {{#determineSymbol c1.stats.mpperlevel c2.stats.mpperlevel}}{{/determineSymbol}}
-      </div>
-      <div class="col lol">
-        Mana regen: {{c2.stats.mpperlevel}}
       </div>
     </div>
   </div>
-</body>
+  <div class="row">
+    <div class="col">
+      <h4>Offense</h4></div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Attack Damage: {{c1.stats.attackdamage}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.attackdamage c2.stats.attackdamage}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Attack Damage: {{c2.stats.attackdamage}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Attack Range: {{c1.stats.attackrange}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.attackrange c2.stats.attackrange}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Attack Range: {{c2.stats.attackrange}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Critical Strike Chance: {{c1.stats.crit}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.crit c2.stats.crit}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Critical Strike Chance: {{c2.stats.crit}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Attack Speed: {{#calcAttackSpeed c1.stats.attackspeedoffset}}{{/calcAttackSpeed}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c2.stats.attackspeedoffset c1.stats.attackspeedoffset}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Attack Speed: {{#calcAttackSpeed c2.stats.attackspeedoffset}}{{/calcAttackSpeed}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>Defense</h4></div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Health: {{c1.stats.hp}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.hp c2.stats.hp}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Health: {{c2.stats.hp}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Health Regen: {{c1.stats.hpregen}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.hpregen c2.stats.hpregen}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Health Regen: {{c2.stats.hpregen}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Armor: {{c1.stats.armor}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.armor c2.stats.armor}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Armor: {{c2.stats.armor}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Magic Resist: {{c1.stats.spellblock}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.spellblock c2.stats.spellblock}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Magic Resist: {{c2.stats.spellblock}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Movespeed: {{c1.stats.movespeed}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.movespeed c2.stats.movespeed}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Movespeed: {{c2.stats.movespeed}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>Magic</h4></div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Ability Power: 0
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol 0 0}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Ability Power: 0
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Magic Penetration: 0
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol 0 0}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Magic Penetration: 0
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Mana: {{c1.stats.mp}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.mp c2.stats.mp}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Mana: {{c2.stats.mp}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col lol">
+      Mana regen: {{c1.stats.mpperlevel}}
+    </div>
+    <div class="col-xs mid">
+      {{#determineSymbol c1.stats.mpperlevel c2.stats.mpperlevel}}{{/determineSymbol}}
+    </div>
+    <div class="col lol">
+      Mana regen: {{c2.stats.mpperlevel}}
+    </div>
+  </div>
+</div>
