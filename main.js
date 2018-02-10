@@ -34,9 +34,9 @@ app.get('/', function(req, res) {
   res.render('search')
 })
 
-app.get('/compare', function (req, res) {
-  var c1 = req.query.c1
-  var c2 = req.query.c2
+app.get('/compare/:champ1/:champ2', function (req, res) {
+  var c1 = req.params.champ1
+  var c2 = req.params.champ2
   connectToDB(c1, c2, res)
 })
 
