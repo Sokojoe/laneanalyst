@@ -35,10 +35,15 @@ app.get('/', function(req, res) {
 })
 
 app.get('/compare/:champ1/:champ2', function (req, res) {
-  var c1 = req.params.champ1
-  var c2 = req.params.champ2
+  var c1 = capitalizeFirstLetter(req.params.champ1)
+  var c2 = capitalizeFirstLetter(req.params.champ2)
   connectToDB(c1, c2, res)
 })
+
+function capitalizeFirstLetter(string){
+  // Temporary fix to allow users to search champ names in lowercase
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function connectToDB (c1, c2, res) {
   var MongoClient = require('mongodb').MongoClient
